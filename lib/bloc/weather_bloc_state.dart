@@ -8,3 +8,14 @@ sealed class WeatherBlocState extends Equatable {
 }
 
 final class WeatherBlocInitial extends WeatherBlocState {}
+
+class WeatherBlocLoading extends WeatherBlocState {}
+class WeatherBlocFailure extends WeatherBlocState {}
+class WeatherBlocSuccess extends WeatherBlocState {
+  final Weather weather;
+
+  const WeatherBlocSuccess(this.weather);
+
+  @override
+  List<Object> get props => [weather];
+}
